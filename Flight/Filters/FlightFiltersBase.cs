@@ -43,5 +43,4 @@ namespace Flight.Filters
         }
     }
 
-
 }

@@ -21,50 +21,38 @@ namespace Flight
             List<Flight> flights = builder.GetFlights().ToList();
 
             // Craete flight writer
-            ConsoleFlightWriter flightWriter = new ConsoleFlightWriter();
+            IFlightWriter writer = new ConsoleFlightWriter();
 
             // Create flight serializer
-            DepartureArrivalInfoSerializer DAISeriziler = new DepartureArrivalInfoSerializer();
+            IFlightSerializer serializer = new DepartureArrivalInfoSerializer();
 
             // Create filters according to requests in the test
-            SingleConditionFilter departBeforeCurrentTime =
+            List<IFlightFilter> filters = new List<IFlightFilter>()
+            {
                 new SingleConditionFilter(
-                    new DepartedInPastValidator()
-                );
+                        new DepartedInPastValidator()
+                    ),
 
-            SingleConditionFilter anySegmentArrivalBeforeDeparture =
                 new SingleConditionFilter(
                     new ArrivalBeforeDepartureValidator()
-                );
+                ),
 
-            SingleConditionFilter moreThanTwoHoursGroundTime =
                 new SingleConditionFilter(
                     new TwoAndMoreHoursOnGroundValidator()
-                );
+                ),
+            };
 
 
             // Output the result
-
-            Console.WriteLine("Answers to 1.\n=======================================");
-            foreach (var flight in departBeforeCurrentTime.Filter(flights))
+            for (int i = 0; i < filters.Count; ++i)
             {
-                flightWriter.Output(flight, DAISeriziler);
+                Console.WriteLine($"Answers to {i+1}.\n=======================================\n");
+                foreach (var flight in filters[i].Filter(flights))
+                {
+                    writer.Output(flight, serializer);
+                }
+                Console.WriteLine("\n");
             }
-            Console.WriteLine();
-
-            Console.WriteLine("Answers to 2.\n=======================================");
-            foreach (var flight in anySegmentArrivalBeforeDeparture.Filter(flights))
-            {
-                flightWriter.Output(flight, DAISeriziler);
-            }
-            Console.WriteLine();
-
-            Console.WriteLine("Answers to 3.\n=======================================");
-            foreach (var flight in moreThanTwoHoursGroundTime.Filter(flights))
-            {
-                flightWriter.Output(flight, DAISeriziler);
-            }
-            Console.WriteLine();
 
             // Stop console
             Console.ReadKey();
