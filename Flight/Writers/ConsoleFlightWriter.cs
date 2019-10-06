@@ -8,8 +8,12 @@ using Flight.Serializers;
 
 namespace Flight.Writers
 {
-    // Writer
-    class ConsoleFlightWriter : IFlightWriter
+    /* 
+     * My implementation of IFlightWriter for console that utilizes IFlightSerializer
+     * in order to retrieve serialized data from a flight
+    */
+
+    public class ConsoleFlightWriter : IFlightWriter
     {
         public void Output(Flight flight, IFlightSerializer serializer)
         {

@@ -5,11 +5,18 @@ using Flight.Validators;
 
 namespace Flight.Filters
 {
+    /*
+     * IFlightFilter is the most important interface in this application
+     * 
+     * It is used to filter flights based on differnt sets of rules
+    */
     public interface IFlightFilter
     {
         IList<Flight> Filter(IList<Flight> flights);
     }
 
+    // Abstract class for filters that use multiple conditions in order to 
+    // filter flights
     public abstract class MultipleConditionFilterBase : IFlightFilter
     {
         protected List<IFlightValidator> conditionValidators;
@@ -28,6 +35,8 @@ namespace Flight.Filters
         }
     }
 
+    // Abstract class for filters that use a single condition in order to
+    // filter flights
     public abstract class SingleConditionFilterBase : IFlightFilter
     {
         protected IFlightValidator conditionValidator;

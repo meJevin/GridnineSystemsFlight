@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Flight.Validators.Custom
 {
+    // Validator for part 3 of the test: Spend more than 2 hours on the ground
     public class TwoAndMoreHoursOnGroundValidator : IFlightValidator
     {
-        // 3. Spend more than 2 hours on the ground
         public bool IsValid(Flight flight)
         {
             if (flight.Segments.Count < 2 || flight.Segments.Count % 2 != 0)

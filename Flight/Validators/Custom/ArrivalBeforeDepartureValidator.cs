@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Flight.Validators.Custom
 {
+    // Validator for part 2 of the test: Have any segment with an arrival date before departure date
     public class ArrivalBeforeDepartureValidator : IFlightValidator
     {
-        // 2. Have any segment with an arrival date before departure date
         public bool IsValid(Flight flight)
         {
             return flight.Segments.Any(seg => seg.ArrivalDate < seg.DepartureDate);

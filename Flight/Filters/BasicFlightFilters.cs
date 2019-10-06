@@ -4,6 +4,13 @@ using Flight.Validators;
 
 namespace Flight.Filters
 {
+    /*
+     *
+     * Here I define a set of basic filter classes
+     * 
+    */
+
+    // To filter flights based on a single condition
     class SingleConditionFilter : SingleConditionFilterBase
     {
         public SingleConditionFilter(IFlightValidator validator) : base(validator)
@@ -26,6 +33,8 @@ namespace Flight.Filters
         }
     }
 
+    // To filter flights based on multiple conditions,
+    // all of which have to be met 
     class AllConditionsFilter : MultipleConditionFilterBase
     {
         public AllConditionsFilter(IList<IFlightValidator> validators) : base(validators)
@@ -59,6 +68,8 @@ namespace Flight.Filters
         }
     }
 
+    // To filter flights based on mutiple conditions,
+    // where at least one has to be met
     class AnyConditionFilter : MultipleConditionFilterBase
     {
         public AnyConditionFilter(IList<IFlightValidator> validators) : base(validators)

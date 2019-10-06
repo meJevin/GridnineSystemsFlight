@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Flight.Serializers
 {
-    // Serializer
+    // My implementation of IFlightSerializer that turns flight data
+    // into human-readable format for console, for exmaple
     public class DepartureArrivalInfoSerializer : IFlightSerializer
     {
         public string SerializeDateTimeFormat { get; set; } = "HH:mm, dd/MM/yyyy";
