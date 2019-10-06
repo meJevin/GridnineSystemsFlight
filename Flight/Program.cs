@@ -45,21 +45,21 @@ namespace Flight
 
             // Output the result
 
-            Console.WriteLine("Answers to 1.\n");
+            Console.WriteLine("Answers to 1.\n=======================================");
             foreach (var flight in departBeforeCurrentTime.Filter(flights))
             {
                 flightWriter.Output(flight, DAISeriziler);
             }
             Console.WriteLine();
 
-            Console.WriteLine("Answers to 2.\n");
+            Console.WriteLine("Answers to 2.\n=======================================");
             foreach (var flight in anySegmentArrivalBeforeDeparture.Filter(flights))
             {
                 flightWriter.Output(flight, DAISeriziler);
             }
             Console.WriteLine();
 
-            Console.WriteLine("Answers to 3.\n");
+            Console.WriteLine("Answers to 3.\n=======================================");
             foreach (var flight in moreThanTwoHoursGroundTime.Filter(flights))
             {
                 flightWriter.Output(flight, DAISeriziler);

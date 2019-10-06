@@ -14,6 +14,7 @@ namespace Flight.Writers
         public void Output(Flight flight, IFlightSerializer serializer)
         {
             Console.WriteLine(serializer.Serialize(flight));
+            Console.WriteLine("-----------------------------------");
         }
     }
 }
