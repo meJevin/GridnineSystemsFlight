@@ -46,6 +46,7 @@ namespace Flight.Tests
 
             Assert.IsTrue(result);
         }
+
         [TestMethod]
         public void FlightNormal_DepartInPastValidator_ReturnsFalse()
         {
@@ -56,9 +57,8 @@ namespace Flight.Tests
             Assert.IsFalse(result);
         }
 
-
         [TestMethod]
-        public void FlightNormal_ArrivalBeforeDepartureValidator_ReturnsTrue()
+        public void FlightNormal_ArrivalBeforeDepartureValidator_ReturnsFalse()
         {
             ArrivalBeforeDepartureValidator validator = new ArrivalBeforeDepartureValidator();
 
