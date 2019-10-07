@@ -18,7 +18,7 @@ namespace Flight.Tests
 
             DepartedInPastValidator validator = new DepartedInPastValidator();
 
-            bool result = validator.IsValid(TestFlights.departingInThePast);
+            bool result = validator.Discard(TestFlights.departingInThePast);
 
             Assert.IsTrue(result);
         }
@@ -30,7 +30,7 @@ namespace Flight.Tests
 
             ArrivalBeforeDepartureValidator validator = new ArrivalBeforeDepartureValidator();
 
-            bool result = validator.IsValid(TestFlights.arrivalBeforeDeparture);
+            bool result = validator.Discard(TestFlights.arrivalBeforeDeparture);
 
             Assert.IsTrue(result);
         }
@@ -42,7 +42,7 @@ namespace Flight.Tests
 
             TwoAndMoreHoursOnGroundValidator validator = new TwoAndMoreHoursOnGroundValidator();
 
-            bool result = validator.IsValid(TestFlights.twoOrMoreHoursGroundTime);
+            bool result = validator.Discard(TestFlights.twoOrMoreHoursGroundTime);
 
             Assert.IsTrue(result);
         }
@@ -52,7 +52,7 @@ namespace Flight.Tests
         {
             DepartedInPastValidator validator = new DepartedInPastValidator();
 
-            bool result = validator.IsValid(TestFlights.normal);
+            bool result = validator.Discard(TestFlights.normal);
 
             Assert.IsFalse(result);
         }
@@ -62,7 +62,7 @@ namespace Flight.Tests
         {
             ArrivalBeforeDepartureValidator validator = new ArrivalBeforeDepartureValidator();
 
-            bool result = validator.IsValid(TestFlights.normal);
+            bool result = validator.Discard(TestFlights.normal);
 
             Assert.IsFalse(result);
         }
@@ -72,7 +72,7 @@ namespace Flight.Tests
         {
             TwoAndMoreHoursOnGroundValidator validator = new TwoAndMoreHoursOnGroundValidator();
 
-            bool result = validator.IsValid(TestFlights.normal);
+            bool result = validator.Discard(TestFlights.normal);
 
             Assert.IsFalse(result);
         }

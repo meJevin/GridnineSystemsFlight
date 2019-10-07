@@ -23,7 +23,7 @@ namespace Flight.Filters
 
             foreach (var flight in flights)
             {
-                if (!conditionValidator.IsValid(flight))
+                if (!conditionValidator.Discard(flight))
                 {
                     result.Add(flight);
                 }
@@ -50,7 +50,7 @@ namespace Flight.Filters
 
                 foreach (var validator in conditionValidators)
                 {
-                    if (validator.IsValid(flight))
+                    if (validator.Discard(flight))
                     {
                         flightSatisfiesAllConditions = false;
                         break;
@@ -84,7 +84,7 @@ namespace Flight.Filters
 
                 foreach (var validator in conditionValidators)
                 {
-                    if (!validator.IsValid(flight))
+                    if (!validator.Discard(flight))
                     {
                         flightSatisfiesAtLeastOneCondition = true;
                         break;
