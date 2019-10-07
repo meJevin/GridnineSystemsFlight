@@ -30,8 +30,8 @@ namespace Flight
             List<IFlightFilter> filters = new List<IFlightFilter>()
             {
                 new SingleConditionFilter(
-                        new DepartedInPastValidator()
-                    ),
+                    new DepartedInPastValidator()
+                ),
 
                 new SingleConditionFilter(
                     new ArrivalBeforeDepartureValidator()

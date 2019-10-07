@@ -11,18 +11,9 @@ namespace Flight.Validators.Custom
     {
         public bool IsValid(Flight flight)
         {
-            if (flight.Segments.Count < 2 || flight.Segments.Count % 2 != 0)
+            if (flight.Segments.Count < 2)
             {
                 return false;
-
-                /*
-                
-                We could also throw an exception like this:
-                 
-                throw new ArgumentException("Ground time can only be calculated " +
-                    "if a flight has 2 or more segments and their count is odd!");
-
-                 */
             }
 
             TimeSpan totalGroundTime = TimeSpan.Zero;

@@ -19,7 +19,13 @@ namespace Flight.Tests
                     new Segment()
                     {
                         DepartureDate = DateTime.Now.AddDays(-6),
-                        ArrivalDate = DateTime.Now.AddDays(-3),
+                        ArrivalDate = DateTime.Now.AddDays(-4),
+                    },
+
+                    new Segment()
+                    {
+                        DepartureDate = DateTime.Now.AddDays(-3),
+                        ArrivalDate = DateTime.Now.AddDays(-2),
                     }
                 }
         };
