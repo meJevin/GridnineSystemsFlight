@@ -31,10 +31,7 @@ namespace Flight.Filters
             }
         }
 
-        public virtual IList<Flight> Filter(IList<Flight> flights)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract IList<Flight> Filter(IList<Flight> flights);
     }
 
     // Abstract class for filters that use a single condition in order to
@@ -48,10 +45,7 @@ namespace Flight.Filters
             conditionValidator = validator;
         }
 
-        public virtual IList<Flight> Filter(IList<Flight> flights)
-        {
-            throw new NotImplementedException();
-        }
+        public abstract IList<Flight> Filter(IList<Flight> flights);
     }
 
 }
