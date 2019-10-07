@@ -23,6 +23,8 @@ namespace Flight.Filters
 
         public MultipleConditionFilterBase(IList<IFlightValidator> validators)
         {
+            conditionValidators = new List<IFlightValidator>();
+
             foreach (var validator in validators)
             {
                 conditionValidators.Add(validator);

@@ -23,7 +23,7 @@ namespace Flight.Filters
 
             foreach (var flight in flights)
             {
-                if (conditionValidator.IsValid(flight))
+                if (!conditionValidator.IsValid(flight))
                 {
                     result.Add(flight);
                 }
@@ -33,8 +33,7 @@ namespace Flight.Filters
         }
     }
 
-    // To filter flights based on multiple conditions,
-    // all of which have to be met 
+    // To filter flights based on multiple conditions (all of them)
     class AllConditionsFilter : MultipleConditionFilterBase
     {
         public AllConditionsFilter(IList<IFlightValidator> validators) : base(validators)
@@ -51,7 +50,7 @@ namespace Flight.Filters
 
                 foreach (var validator in conditionValidators)
                 {
-                    if (!validator.IsValid(flight))
+                    if (validator.IsValid(flight))
                     {
                         flightSatisfiesAllConditions = false;
                         break;
@@ -68,8 +67,7 @@ namespace Flight.Filters
         }
     }
 
-    // To filter flights based on mutiple conditions,
-    // where at least one has to be met
+    // To filter flights based on mutiple conditions (at least one of them)
     class AnyConditionFilter : MultipleConditionFilterBase
     {
         public AnyConditionFilter(IList<IFlightValidator> validators) : base(validators)
@@ -86,7 +84,7 @@ namespace Flight.Filters
 
                 foreach (var validator in conditionValidators)
                 {
-                    if (validator.IsValid(flight))
+                    if (!validator.IsValid(flight))
                     {
                         flightSatisfiesAtLeastOneCondition = true;
                         break;
