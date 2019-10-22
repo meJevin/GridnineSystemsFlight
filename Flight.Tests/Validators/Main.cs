@@ -6,10 +6,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Flight.Validators.Custom;
 
-namespace Flight.Tests
+namespace Flight.Tests.Validators
 {
     [TestClass]
-    public class MainTest
+    public class Main
     {
         [TestMethod]
         public void FlightDepartingInThePast_DepartInPastValidator_ReturnsTrue()
