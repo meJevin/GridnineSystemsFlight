@@ -17,7 +17,7 @@ namespace Flight.Filters
         {
         }
 
-        public override IList<Flight> Filter(IList<Flight> flights)
+        public override IList<Flight> FilterOut(IList<Flight> flights)
         {
             List<Flight> result = new List<Flight>();
 
@@ -40,7 +40,7 @@ namespace Flight.Filters
         {
         }
 
-        public override IList<Flight> Filter(IList<Flight> flights)
+        public override IList<Flight> FilterOut(IList<Flight> flights)
         {
             List<Flight> result = new List<Flight>();
 
@@ -74,7 +74,7 @@ namespace Flight.Filters
         {
         }
 
-        public override IList<Flight> Filter(IList<Flight> flights)
+        public override IList<Flight> FilterOut(IList<Flight> flights)
         {
             List<Flight> result = new List<Flight>();
 

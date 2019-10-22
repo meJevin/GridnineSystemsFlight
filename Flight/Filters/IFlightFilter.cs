@@ -12,7 +12,7 @@ namespace Flight.Filters
     */
     public interface IFlightFilter
     {
-        IList<Flight> Filter(IList<Flight> flights);
+        IList<Flight> FilterOut(IList<Flight> flights);
     }
 
     // Abstract class for filters that use multiple conditions in order to 
@@ -31,7 +31,7 @@ namespace Flight.Filters
             }
         }
 
-        public abstract IList<Flight> Filter(IList<Flight> flights);
+        public abstract IList<Flight> FilterOut(IList<Flight> flights);
     }
 
     // Abstract class for filters that use a single condition in order to
@@ -45,7 +45,7 @@ namespace Flight.Filters
             conditionValidator = validator;
         }
 
-        public abstract IList<Flight> Filter(IList<Flight> flights);
+        public abstract IList<Flight> FilterOut(IList<Flight> flights);
     }
 
 }

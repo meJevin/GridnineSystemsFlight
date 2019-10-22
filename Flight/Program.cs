@@ -27,29 +27,36 @@ namespace Flight
             // Create flight serializer
             IFlightSerializer serializer = new DepartureArrivalInfoSerializer();
 
-            // Create filters according to requests in the test
-            List<IFlightFilter> filters = new List<IFlightFilter>()
-            {
-                new AllConditionsFilter(
+            // Create filters according to requirements in the test
+            IFlightFilter filters = new AllConditionsFilter(
                     new List<IFlightValidator>()
                     {
+                        // Filter out those that departed in the past
                         new DepartedInPastValidator(),
+
+                        // Arrived before deparutre
                         new ArrivalBeforeDepartureValidator(),
+
+                        // Have 2+ hrs ground time
                         new TwoAndMoreHoursOnGroundValidator(),
                     }
-                ),
-            };
+                );
+
+            // Print original flights
+            Console.WriteLine($"Flights before filter:\n=======================================\n");
+            foreach (var flight in flights)
+            {
+                writer.Output(flight, serializer);
+            }
+            Console.WriteLine("\n\n");
 
             // Output the result
-            for (int i = 0; i < filters.Count; ++i)
+            Console.WriteLine($"Flights after filter:\n=======================================\n");
+            foreach (var flight in filters.FilterOut(flights))
             {
-                Console.WriteLine($"Answers to {i+1}.\n=======================================\n");
-                foreach (var flight in filters[i].Filter(flights))
-                {
-                    writer.Output(flight, serializer);
-                }
-                Console.WriteLine("\n");
+                writer.Output(flight, serializer);
             }
+            Console.WriteLine("\n");
 
             // Stop console
             Console.ReadKey();
