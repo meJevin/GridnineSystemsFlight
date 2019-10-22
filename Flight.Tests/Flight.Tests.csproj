@@ -49,12 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Filters\Main.cs" />
-    <Compile Include="Serializers\Main.cs" />
-    <Compile Include="Validators\Main.cs" />
+    <Compile Include="Filters\Filters.cs" />
+    <Compile Include="Serializers\Serializers.cs" />
+    <Compile Include="Validators\Validators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestFlights.cs" />
-    <Compile Include="Writers\Main.cs" />
+    <Compile Include="Writers\Writers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

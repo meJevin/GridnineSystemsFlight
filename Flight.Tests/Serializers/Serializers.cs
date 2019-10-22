@@ -5,11 +5,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Flight.Tests.Serializers
 {
-    /// <summary>
-    /// Summary description for UnitTest1
-    /// </summary>
+    //
     [TestClass]
-    public class Main
+    public class Serializers
     {
         [TestMethod]
         public void TestMethod1()

@@ -9,10 +9,11 @@ using Flight.Validators.Custom;
 namespace Flight.Tests.Validators
 {
     [TestClass]
-    public class Main
+    public class Validators
     {
         [TestMethod]
-        public void FlightDepartingInThePast_DepartInPastValidator_ReturnsTrue()
+        public void 
+            FlightDepartingInThePast_DepartInPastValidator_ReturnsTrue()
         {
             // Departures in the past
 
@@ -24,7 +25,8 @@ namespace Flight.Tests.Validators
         }
 
         [TestMethod]
-        public void FlightArrivalBeforeDeparture_ArrivalBeforeDepartureValidator_ReturnsTrue()
+        public void 
+            FlightArrivalBeforeDeparture_ArrivalBeforeDepartureValidator_ReturnsTrue()
         {
             // Arrival before departure
 
@@ -36,7 +38,8 @@ namespace Flight.Tests.Validators
         }
 
         [TestMethod]
-        public void FlightGroundTimeIsGreaterThanTwo_TwoAndMoreHoursOnGroundValidator_ReturnsFalse()
+        public void 
+            FlightGroundTimeIsGreaterThanTwo_TwoAndMoreHoursOnGroundValidator_ReturnsFalse()
         {
             // More than two hours ground time
 
@@ -48,7 +51,8 @@ namespace Flight.Tests.Validators
         }
 
         [TestMethod]
-        public void FlightNormal_DepartInPastValidator_ReturnsFalse()
+        public void 
+            FlightNormal_DepartInPastValidator_ReturnsFalse()
         {
             DepartedInPastValidator validator = new DepartedInPastValidator();
 
@@ -58,7 +62,8 @@ namespace Flight.Tests.Validators
         }
 
         [TestMethod]
-        public void FlightNormal_ArrivalBeforeDepartureValidator_ReturnsFalse()
+        public void 
+            FlightNormal_ArrivalBeforeDepartureValidator_ReturnsFalse()
         {
             ArrivalBeforeDepartureValidator validator = new ArrivalBeforeDepartureValidator();
 
@@ -68,7 +73,8 @@ namespace Flight.Tests.Validators
         }
 
         [TestMethod]
-        public void FlightNormal_TwoAndMoreHoursOnGroundValidator_ReturnsFalse()
+        public void 
+            FlightNormal_TwoAndMoreHoursOnGroundValidator_ReturnsFalse()
         {
             TwoAndMoreHoursOnGroundValidator validator = new TwoAndMoreHoursOnGroundValidator();
 

@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Flight.Tests.Filters
 {
     [TestClass]
-    public class Main
+    public class Filters
     {
         [TestMethod]
         public void AllConditionsFilter_FiltersOutAll_ThatSatisfyCondition()
